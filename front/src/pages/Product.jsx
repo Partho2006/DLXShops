@@ -6,7 +6,7 @@ import RelatedProducts from '../components/RelatedProducts';
 
 const Product = () => {
   const { productId } = useParams();
-  const { products, currency } = useContext(ShopContext);
+  const { products, currency, addToCart } = useContext(ShopContext);
   const [productData, setProductData] = useState(null);
   const [image, setImage] = useState('');
   const [size, setSize] = useState('');
@@ -22,8 +22,6 @@ const Product = () => {
     }
 
   }, [productId, products]);
-
-  // ⭐ ONLY design classes modified — structure & logic untouched.
 
   return productData ? (
     <div className='border-t-2 pt-10 px-4 sm:px-0 transition-opacity ease-in duration-300 opacity-100'>
@@ -83,8 +81,8 @@ const Product = () => {
             </div>
           </div>
 
-          <button className='bg-black text-white px-10 py-4 text-sm font-medium rounded-xl hover:bg-gray-800 transition'>
-            ADD TO CART
+          <button onClick={()=> addToCart(productId, size)} className='bg-black text-white px-10 py-4 text-sm font-medium rounded-xl hover:bg-gray-800 transition'>
+            ADD TO CART       
           </button>
 
           <hr className='mt-10 sm:w-4/5 text-gray-300' />
