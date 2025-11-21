@@ -5,7 +5,7 @@ import ProductItem from '../components/ProductItem';
 import { assets } from '../assets/assets';
 
 const Collection = () => {
-  const { products,  search, showSearch } = useContext(ShopContext);
+  const { products, search, showSearch } = useContext(ShopContext);
 
   const [showFilter, setShowFilter] = useState(false);
   const [filterProducts, setFilterProducts] = useState([]);
