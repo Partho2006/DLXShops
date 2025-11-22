@@ -82,6 +82,10 @@ const Cart = () => {
       <div className="flex justify-between my-20">
         <div className="w-full ">
           <CartTotal />
+
+          <div className="w-full text-end">
+            <button className='bg-black hover:bg-black/80 text-white text-sm my-8 px-8 py-3 rounded-xl'>PROCEED TO CHECKOUT</button>
+          </div>
         </div>
       </div>
     </div>
