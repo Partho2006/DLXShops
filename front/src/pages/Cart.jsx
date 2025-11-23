@@ -39,7 +39,7 @@ const Cart = () => {
           return (
             <div
               key={index}
-              className="p-4 bg-white shadow-sm border-b 
+              className="p-4 bg-white shadow-sm border-b border-gray-400 
                        hover:shadow-md transition 
                        grid grid-cols-[1fr_auto_auto] sm:grid-cols-[2fr_1fr_auto] 
                        items-center gap-6">
@@ -71,7 +71,7 @@ const Cart = () => {
                 max={8}
                 onChange={(e) => e.target.value === '' || e.target.value === '0' ? null : updateQuantity(item._id, item.size, Number(e.target.value))}
                 defaultValue={item.quantity}
-                className="border border-gray-300 bg-gray-200 rounded-md 
+                className="border border-gray-400 bg-gray-200 rounded-md 
                            w-14 text-center py-1 outline-none"/>
               <img onClick={() => updateQuantity(item._id, item.size, 0)} src={assets.bin_icon} alt="" className='w-4 mr-4 sm:w-5 cursor-pointer' />
             </div>

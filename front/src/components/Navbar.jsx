@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { assets } from '../assets/assets'
-import { Link, NavLink } from 'react-router-dom'
+import { Link, Links, NavLink } from 'react-router-dom'
 import { ShopContext } from '../context/ShopContext'
 
 const Navbar = () => {
@@ -48,17 +48,21 @@ const Navbar = () => {
 
       <div className="flex items-center gap-6 relative">
 
-        <img onClick={()=> setShowSearch(true)} src={assets.search_icon} alt="" className="w-5 cursor-pointer" />
+        <img onClick={() => setShowSearch(true)} src={assets.search_icon} alt="" className="w-5 cursor-pointer" />
 
         <div className="relative group">
-          <img src={assets.profile_icon} alt="" className="w-5 cursor-pointer" />
+          <Link to='/login'>
+            <img src={assets.profile_icon} alt="" className="w-5 cursor-pointer" />
+          </Link>
 
           <div className="absolute top-full right-0 z-50 mt-2 
                   opacity-0 invisible group-hover:opacity-100 group-hover:visible
                   transition-all duration-200">
             <div className="flex flex-col gap-2 w-40 py-3 px-5 bg-white shadow-lg rounded-xl text-gray-600">
               <p className="cursor-pointer hover:text-black">My Profile</p>
-              <p className="cursor-pointer hover:text-black">Orders</p>
+              <Link to='/orders'>
+                <p className="cursor-pointerhover:text-black">Orders</p>
+              </Link>
               <p className="cursor-pointer hover:text-black">Logout</p>
             </div>
           </div>
@@ -72,19 +76,19 @@ const Navbar = () => {
             {getCartCount()}
           </p>
         </Link>
-        <img onClick={()=> setVisible(true)} src={assets.menu_icon} alt="" className='w-5 cursor-pointer sm:hidden'/>
+        <img onClick={() => setVisible(true)} src={assets.menu_icon} alt="" className='w-5 cursor-pointer sm:hidden' />
       </div>
 
       <div className={`absolute top-0 bottom-0 overflow-hidden bg-white transition-all duration-200 ${visible ? 'w-full' : 'w-0'} `}>
         <div className="flex flex-col text-gray-600">
-          <div onClick={()=> setVisible(false)} className="flex items-center gap-4 p-3 cursor-pointer">
-            <img src={assets.dropdown_icon} alt="" className='h-4 rotate-180'/>
+          <div onClick={() => setVisible(false)} className="flex items-center gap-4 p-3 cursor-pointer">
+            <img src={assets.dropdown_icon} alt="" className='h-4 rotate-180' />
             <p className="">Back</p>
           </div>
-          <NavLink onClick={()=> setVisible(false)} className='py-2 pl-6 border-b' to='/'>Home</NavLink>
-          <NavLink onClick={()=> setVisible(false)} className='py-2 pl-6 border-b' to='/collection'>Collection</NavLink>
-          <NavLink onClick={()=> setVisible(false)} className='py-2 pl-6 border-b' to='/about'>About</NavLink>
-          <NavLink onClick={()=> setVisible(false)} className='py-2 pl-6 border-b' to='/contact'>Contact</NavLink>
+          <NavLink onClick={() => setVisible(false)} className='py-2 pl-6 border-b' to='/'>Home</NavLink>
+          <NavLink onClick={() => setVisible(false)} className='py-2 pl-6 border-b' to='/collection'>Collection</NavLink>
+          <NavLink onClick={() => setVisible(false)} className='py-2 pl-6 border-b' to='/about'>About</NavLink>
+          <NavLink onClick={() => setVisible(false)} className='py-2 pl-6 border-b' to='/contact'>Contact</NavLink>
         </div>
       </div>
 

@@ -10,7 +10,7 @@ const Placeorder = () => {
   const { navigate } = useContext(ShopContext);
 
   return (
-    <div className="flex flex-col sm:flex-row justify-between gap-10 pt-8 sm:pt-14 min-h-[80vh]">
+    <div className="flex flex-col sm:flex-row justify-between gap-10 pt-12 min-h-[80vh] border-t">
 
       <div className="flex flex-col gap-5 w-full max-w-xl">
 
