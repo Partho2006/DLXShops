@@ -24,3 +24,7 @@ productRouter.post('/single', singleProduct);
 productRouter.get('/list', listProduct);
 
 export default productRouter;
+
+// pal pal jeena mohal
+// mera tere bins
+// sare nashe bekar tere akhon ke sibha
