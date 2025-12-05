@@ -26,5 +26,8 @@ productRouter.get('/list', listProduct);
 export default productRouter;
 
 // pal pal jeena mohal
-// mera tere bins
+// mera tere bina
 // sare nashe bekar tere akhon ke sibha
+// ma nahi jata hu bhar, rehta tera intezaar
+// mere akhon meye aa na karke sola sinagar
+// me abto hos me ata nahi, 
