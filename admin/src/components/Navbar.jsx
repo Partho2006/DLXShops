@@ -7,9 +7,7 @@ const Navbar = () => {
   <img
     className="w-[max(20%,80px)]" src={assets.logo} alt=""
   />
-  <button className="bg-gray-600 text-white px-5 py-2 sm:px-7 sm:py-2 rounded-full text-xs sm:text-sm">
-    Logout
-  </button>
+  <button type="submit" className='bg-black hover:bg-black/80 text-white text-sm my-8 px-8 py-3 rounded-full duration-300'> Login </button>
 </div>
 
   )
