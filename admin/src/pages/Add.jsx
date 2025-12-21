@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { assets } from '../assets/assets2'
 import axios from 'axios'
 import { backendUrl } from '../App'
+import { toast } from 'react-toastify'
 
 const Add = ({token}) => {
   const [image1, setImage1] = useState(false);
@@ -42,8 +43,22 @@ const Add = ({token}) => {
         { headers: {token} }
       );
 
+      if (response.data.success) {
+        toast.success(response.data.message);
+        setName('')
+        setDescription('')
+        setImage1(false)
+        setImage2(false)
+        setImage3(false)
+        setImage4(false)
+        setPrice('')
+      } else {
+        toast.error(response.data.message)
+      }
+
     } catch (error) {
-      console.error(error);
+      console.log(error);
+      toast.error(error.message)
     }
   };
 
@@ -86,7 +101,7 @@ const Add = ({token}) => {
 
         <div className="w-full">
           <p className="mb-2 font-bold">Product Category</p>
-          <select onChange={(e) => setCategory(e.target.value)} value={category} className="w-full px-4 py-2 border border-gray-300 rounded-md outline-none focus:ring-2 focus:ring-black focus:border-black transition">
+          <select onChange={(e) => setCategory(e.target.value)} value={category} className="w-full px-4 py-2 border border-gray-300 rounded-md outline-none focus:ring-2 focus:ring-pink-400 focus:border-pink-300 transition">
             <option value="Men">Men</option>
             <option value="Women">Women</option>
             <option value="Kids">Kids</option>
@@ -95,7 +110,7 @@ const Add = ({token}) => {
 
         <div className="w-full">
           <p className="mb-2 font-bold">Sub Category</p>
-          <select onChange={(e) => setSubCategory(e.target.value)} value={subcategory} className="w-full px-4 py-2 border border-gray-300 rounded-md outline-none focus:ring-2 focus:ring-black focus:border-black transition">
+          <select onChange={(e) => setSubCategory(e.target.value)} value={subcategory} className="w-full px-4 py-2 border border-gray-300 rounded-md outline-none focus:ring-2 focus:ring-pink-400 focus:border-pink-300 transition">
             <option value="Topwear">Topwear</option>
             <option value="Bottomwear">Bottomwear</option>
             <option value="Winter">Winter</option>
@@ -107,7 +122,7 @@ const Add = ({token}) => {
           <input
             type="number"
             placeholder="25"
-            className="w-full px-4 py-2 border border-gray-300 rounded-md outline-none focus:ring-2 focus:ring-black focus:border-black transition"
+            className="w-full px-4 py-2 border border-gray-300 rounded-md outline-none focus:ring-2 focus:ring-pink-400 focus:border-pink-300 transition"
             onChange={(e) => setPrice(e.target.value)}
             value={price}
           />
@@ -119,19 +134,19 @@ const Add = ({token}) => {
 
         <div className="flex gap-3">
           <div className="" onClick={() => setSizes(prev => prev.includes('S') ? prev.filter(item => item !== 'S') : [...prev, 'S'])}>
-            <p className={`px-3 py-1 cursor-pointer ${sizes.includes('S') ? 'bg-pink-200' : 'bg-slate-300'}`}>S</p>
+            <p className={`px-3 py-1 cursor-pointer ${sizes.includes('S') ? 'bg-pink-300' : 'bg-slate-300'}`}>S</p>
           </div>
           <div className="" onClick={() => setSizes(prev => prev.includes('M') ? prev.filter(item => item !== 'M') : [...prev, 'M'])}>
-            <p className={`px-3 py-1 cursor-pointer ${sizes.includes('M') ? 'bg-pink-200' : 'bg-slate-300'}`}>M</p>
+            <p className={`px-3 py-1 cursor-pointer ${sizes.includes('M') ? 'bg-pink-300' : 'bg-slate-300'}`}>M</p>
           </div>
           <div className="" onClick={() => setSizes(prev => prev.includes('L') ? prev.filter(item => item !== 'L') : [...prev, 'L'])}>
-            <p className={`px-3 py-1 cursor-pointer ${sizes.includes('L') ? 'bg-pink-200' : 'bg-slate-300'}`}>L</p>
+            <p className={`px-3 py-1 cursor-pointer ${sizes.includes('L') ? 'bg-pink-300' : 'bg-slate-300'}`}>L</p>
           </div>
           <div className="" onClick={() => setSizes(prev => prev.includes('XL') ? prev.filter(item => item !== 'XL') : [...prev, 'XL'])}>
-            <p className={`px-3 py-1 cursor-pointer ${sizes.includes('XL') ? 'bg-pink-200' : 'bg-slate-300'}`}>XL</p>
+            <p className={`px-3 py-1 cursor-pointer ${sizes.includes('XL') ? 'bg-pink-300' : 'bg-slate-300'}`}>XL</p>
           </div>
           <div className="" onClick={() => setSizes(prev => prev.includes('XXL') ? prev.filter(item => item !== 'XXL') : [...prev, 'XXL'])}>
-            <p className={`px-3 py-1 cursor-pointer ${sizes.includes('XXL') ? 'bg-pink-200' : 'bg-slate-300'}`}>XXL</p>
+            <p className={`px-3 py-1 cursor-pointer ${sizes.includes('XXL') ? 'bg-pink-300' : 'bg-slate-300'}`}>XXL</p>
           </div>
         </div>
       </div>
