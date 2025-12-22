@@ -104,7 +104,7 @@ const List = ({token}) => {
 
           <div className="hidden md:flex justify-center">
             <button
-              onClick={() => removeProduct(item.id)}
+              onClick={() => removeProduct(item._id)}
               className="
                 px-4 py-1.5 rounded-lg
                 text-sm font-medium
