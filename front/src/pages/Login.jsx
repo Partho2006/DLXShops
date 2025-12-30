@@ -9,8 +9,7 @@ const Login = () => {
   const onSubmitHandler = async (event) => {
     event.preventDefault();
     try {
-      // hawa hawa ayy hawa mujko ura le thjjj;kk;
-      // lol
+      
     } catch (error) {
       
     }
