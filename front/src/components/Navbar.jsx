@@ -74,6 +74,7 @@ const Navbar = () => {
             </div>
           </div>
           }
+          {/* papa bhidhayak hai hamare */}
         </div>
 
         <Link to="/cart" className="relative">
