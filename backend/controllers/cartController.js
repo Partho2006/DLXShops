@@ -4,8 +4,9 @@ import userModel from "../models/userModel";
 const addToCart = async (req, res) => {
     try {
         const { userId, itemId, size } = req.body;
+
         const userData = await userModel.findById(userId);
-        const cardData = await userData.cardData;
+        let cardData = await userData.cardData;
 
         if (cardData[itemId]) {
             if (cardData[itemId][size]) {
@@ -32,11 +33,43 @@ const addToCart = async (req, res) => {
 }
 
 const updateCart = async (req, res) => {
+    try {
+        const { userId, itemId, size, quantity } = req.body;
 
+        const userData = await userModel.findById(userId);
+        let cardData = await userData.cardData;
+
+        cardData[itemId][size] = quantity;
+        await userModel.findByIdAndUpdate(userId, { cardData });
+        res.json({
+            success: true,
+            message: "Updated Cart!!"
+        })
+    } catch (error) {
+        res.json({
+            success: false,
+            message: error.message
+        })
+    }
 }
 
 const getUserCart = async (req, res) => {
+    try {
+        const { userId } = req.body;
 
+        const userData = await userModel.findById(userId);
+        let cardData = await userData.cardData;
+
+        res.json({
+            success: true,
+            cardData
+        })
+    } catch (error) {
+        res.json({
+            success: false,
+            message: error.message
+        })
+    }
 }
 
 export { addToCart, updateCart, getUserCart }
